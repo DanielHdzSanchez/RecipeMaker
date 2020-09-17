@@ -9,14 +9,28 @@ fun main(args: Array<String>) {
         val response: String? = readLine()
         when (response)
         {
-            "1" -> println("¡Haz hecho una receta!")
-            "2" -> println("""
-                Estas son tus recetas
-                    >Receta 1
-                    >Receta 2
-                    >Receta 3
-            """.trimIndent())
+            "1" -> makeRecipe()
+            "2" -> viewRecipe()
             "3" -> println("¡Vuelve pronto!")
         }
     } while (response!="3")
+}
+
+fun makeRecipe()
+{
+    do {
+        println("Hacer receta")
+        val ingredients = listOf<String>("Agua", "Leche", "Carne",
+                "Verduras", "Frutas", "Ceral", "Huevos", "Aceites")
+        for((index, ingredient) in ingredients.withIndex())
+        {
+            println("${index.plus(1)}. $ingredient")
+        }
+        val response = readLine()
+    } while (response in 1..8)
+}
+
+fun viewRecipe()
+{
+    println("Ver mis recetas")
 }
